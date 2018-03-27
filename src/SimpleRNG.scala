@@ -13,7 +13,6 @@ case class SimpleRNG(seed: Long) extends RNG {
 
     (n, nextRNG)
   }
-
 }
 
 object RandCombinator {
@@ -70,6 +69,7 @@ object RandCombinator {
 
 }
 
+// TODO: use State to represent rand instead
 object SimpleRNG {
   def int: Rand[Int] = _.nextInt
 
@@ -135,7 +135,6 @@ object SimpleRNG {
 
     helper(count, List[Int]())(rng)
   }
-
 
   def intsUsingCombinators(count: Int): Rand[List[Int]] =
     RandCombinator.sequence(List.fill(count)(int))
