@@ -1,9 +1,13 @@
+import TypeWrapper.Rand
+
 trait RNG {
   def nextInt: (Int, RNG)
 }
 
-type Rand[+A] = RNG => (A, RNG)
-
+// really bad but w/e
+object TypeWrapper {
+  type Rand[+A] = RNG => (A, RNG)
+}
 
 case class SimpleRNG(seed: Long) extends RNG {
   def nextInt: (Int, RNG) = {

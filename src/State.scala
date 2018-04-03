@@ -19,7 +19,6 @@ case class State[S, +A](run: S => (A, S)) {
       f(nextVal).run(nextState)
     })
 
-
 }
 
 object State {
